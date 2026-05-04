@@ -1,0 +1,61 @@
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyc
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# lightkurve / MAST cache (global cache lives in ~/.lightkurve; any project-local cache)
+.lightkurve-cache/
+mastDownload/
+*.fits
+*.fit
+*.fts
+
+# pySYD working directories — these regenerate from the lightcurve
+# (the LC and PS text files are large and reproducible)
+hd16467/pysyd_input/
+hd16467/pysyd_output/
+hd16467/extra_sectors/
+
+# Large intermediate data files
+*.dat
+*.npy
+*.pkl
+*.joblib
+*.hdf5
+*.h5
+
+# OS junk
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.directory
+
+# Editors
+.vscode/
+.idea/
+.nvim/
+*.code-workspace
+
+# Secrets / local config (public APIs only, but belt-and-suspenders)
+.env
+*.env
+secrets.py
+config_local.py
