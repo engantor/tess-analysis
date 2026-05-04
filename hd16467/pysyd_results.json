@@ -1,0 +1,11 @@
+{
+  "pysyd_success": true,
+  "pysyd_version": "6.10.5",
+  "our_numax": 43.43,
+  "our_numax_err": 0.1,
+  "our_dnu_note": "ACF at MARGINAL SNR \u2014 unreliable",
+  "numax": 44.48456674,
+  "numax_err": 0.5002146510038383,
+  "dnu": 1.133632500000001,
+  "dnu_err": 0.0
+}
