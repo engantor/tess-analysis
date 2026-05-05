@@ -223,7 +223,88 @@ shift slightly.
 
 ## Verification results
 
-*This section will be updated after the verification scripts run.*
+### pySYD cross-check (`run_pysyd.py`)
+
+Independent pipeline run on the same TESS-SPOC 200s sector 68 data.
+
+| Quantity | Harvey fit | pySYD | Difference |
+|---|---|---|---|
+| νmax | 36.63 ± 0.07 µHz | 36.79 ± 0.91 µHz | 0.16 µHz = **0.2σ** |
+| Δν | 3.64 µHz (ACF) | 3.75 ± 0.10 µHz | 0.11 µHz |
+
+Both values are consistent. The sub-0.5σ agreement on νmax confirms the
+Harvey fit detection is not an artefact of the background model choice.
+The 0.11 µHz Δν difference is within the ACF uncertainty for a single
+24-day sector.
+
+**Assessment: CONSISTENT — pySYD independently confirms the detection.**
+
+### Sector 95 temporal stability (`sector95_independent.py`)
+
+QLP 200s sector 95 (BTJD ~3882–3909, approximately 700 days after sector 68)
+was analysed independently.
+
+**Result: NOT DETECTED** — H/background = 0.50, significance below the 2×
+noise threshold. The QLP sector 95 rms is 4337.6 ppm vs 506.9 ppm for
+TESS-SPOC sector 68 — a factor of ~8.6 higher. The noise floor is
+~1557 ppm²/µHz, roughly 20× above the oscillation envelope level. The
+returned νmax = 30.64 ± 19.52 µHz is unconstrained noise.
+
+This non-detection is a pipeline and aperture quality issue, not an
+astrophysical result. The QLP lightcurve for this 233 pc target in sector 95
+has substantially worse systematics than the TESS-SPOC sector 68 product.
+**The temporal stability of νmax cannot be assessed from the available data.**
+
+For a K2III giant, νmax is not expected to vary on multi-year timescales;
+the sector 95 QLP noise simply overwhelms the signal. A future TESS-SPOC
+200s sector (if one is scheduled) would enable the intended stability check.
+
+### Échelle diagram (`echelle.py`)
+
+Background-subtracted PSD (sector 68) folded at Δν = 3.64 µHz (ACF)
+over the frequency window 16.6–56.7 µHz (±5.5 Δν around νmax).
+
+| Metric | Value | Threshold | Interpretation |
+|---|---|---|---|
+| Column contrast ratio | **0.634** | >0.3 = ridges present | Ridge structure detected |
+| Grid | 11 rows × 364 cols | — | — |
+
+A column contrast of 0.634 is well above the 0.3 ridge-detection threshold,
+indicating that the background-subtracted PSD has significant column-to-column
+power variation — the hallmark of vertical ridges in the échelle. The ACF Δν
+is real and resolves into distinct ridges at this spacing.
+
+**Assessment: Δν is real — individual p-mode ridges are visible. Mode
+identification (ℓ=0 and ℓ=2) may be possible with the current data.**
+
+The comparison plot (`echelle_comparison.png`) shows both ACF (3.64 µHz) and
+pySYD (3.75 µHz) foldings. Both produce ridge-like structure; the ACF value
+gives marginally cleaner alignment, consistent with the higher column contrast.
+
+### Overall confidence assessment
+
+| Check | Result | Weight |
+|---|---|---|
+| Harvey fit (TESS-SPOC s68) | CONVINCING — H/bkg = 7.71 | Primary detection |
+| pySYD (same data) | CONSISTENT — Δ = 0.2σ | Strong cross-check |
+| Sector 95 QLP | NOT DETECTED — pipeline noise | Not informative (noise limit) |
+| Échelle contrast | 0.634 — ridges present | Confirms Δν is real |
+
+The detection of solar-like oscillations in HD 206948 is **well-established**.
+The primary detection is convincing by any standard metric, pySYD independently
+agrees, and the échelle diagram confirms the Δν measurement. The only incomplete
+check is temporal stability, which requires a second clean TESS-SPOC sector.
+
+**Final values:**
+
+| Quantity | Value | Notes |
+|---|---|---|
+| νmax | **36.63 ± 0.07 µHz** (formal) / ~36.7 ± 0.5 µHz (realistic) | Harvey fit; pySYD 36.79 µHz |
+| Δν | **3.64 µHz** (ACF) / **3.75 µHz** (pySYD) | Ridges confirmed in échelle |
+| log g (seismic) | **2.465** | Precise; independent of mass assumption |
+| M (scaling) | ~2.3 M☉ | Uncertain by ±5–10% from scaling systematics |
+| R (scaling) | ~14.6 R☉ | Consistent with TIC 12.49 R☉ within Δν uncertainty |
+| Detection | **CONVINCING** (H/bkg = 7.71) | Strongest detection in this project |
 
 ---
 
