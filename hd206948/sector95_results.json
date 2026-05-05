@@ -1,0 +1,17 @@
+{
+  "sector": 95,
+  "pipeline": "QLP",
+  "n_cadences": 10492,
+  "baseline_days": 25.22209647951877,
+  "rms_ppm": 4337.63123344064,
+  "detection": "NOT DETECTED",
+  "significance": 0.4954045653696387,
+  "fit_success": true,
+  "numax": 30.63712792396899,
+  "numax_err": 19.52159258115049,
+  "gran_tau1_h": 5.527730190471328,
+  "gran_tau2_h": 1.386254819393219,
+  "sector68_numax": 36.63,
+  "numax_diff": -5.992872076031013,
+  "sigma_diff": 0.30698486939580855
+}
