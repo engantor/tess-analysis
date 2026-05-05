@@ -1,0 +1,11 @@
+{
+  "pysyd_success": true,
+  "pysyd_version": "6.10.5",
+  "our_numax": 36.63,
+  "our_numax_err": 0.07,
+  "our_dnu": 3.64,
+  "numax": 36.78946397692855,
+  "numax_err": 0.9149339765519195,
+  "dnu": 3.7498867641515576,
+  "dnu_err": 0.0993980561225803
+}
