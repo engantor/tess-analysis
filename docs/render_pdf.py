@@ -178,6 +178,10 @@ def inline_md_to_rl(text):
     text = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", text)
     # Italic (*) — must not match the leftover * inside <b>
     text = re.sub(r"(?<![*\w])\*([^*\n]+?)\*(?!\w)", r"<i>\1</i>", text)
+    # DejaVu Serif lacks ℓ (U+2113, SCRIPT SMALL L). Render it from Sans so it
+    # doesn't show as a missing-glyph box. Bold/italic survive because Sans has
+    # a registered family with the same weight/slant mappings.
+    text = text.replace("ℓ", '<font face="Sans">ℓ</font>')
     # Escape stray ampersands and angle brackets that aren't already a tag.
     # ReportLab is picky: turn naked '&' into '&amp;', but our existing tags
     # are <b>, <i>, <font ...>, </b>, </i>, </font>, <super>, <sub>.
